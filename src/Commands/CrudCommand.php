@@ -50,9 +50,10 @@ class CrudCommand extends Command
         $migrationName = str_plural(strtolower($name));
         $tableName = $migrationName;
         $viewName = strtolower($name);
+        $routePrefix = str_plural($name);
 
         $routeGroup = $this->option('route-group');
-        $routeName = ($routeGroup) ? $routeGroup . '/' . strtolower($name) : strtolower($name);
+        $routeName = ($routeGroup) ? $routeGroup . '/' . strtolower($routePrefix) : strtolower($routePrefix);
 
         $controllerNamespace = ($this->option('namespace')) ? $this->option('namespace') . '\\' : '';
 
